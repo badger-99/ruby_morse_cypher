@@ -70,6 +70,12 @@ def encode_word(str)
   word.join(' ')
 end
 
+def encode_message(str)
+  message = str.split
+  message.map! { |word| encode_word(word) }
+  message.join('   ')
+end
+
 # puts decode_character('.....') # Output -> 5
 # puts decode_word('-. .- -- .') # Output -> NAME
 # puts decode_message('-- -.--   -. .- -- .') # Output -> MY NAME
@@ -77,3 +83,4 @@ end
 # puts decode_message(message)
 puts encode_character('a') # Output -> .-
 puts encode_word('name') # Output -> -. .- -- .
+puts encode_message('my name') # Output -> -- -.--   -. .- -- .
