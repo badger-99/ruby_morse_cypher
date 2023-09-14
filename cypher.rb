@@ -60,13 +60,20 @@ def decode_message(str)
 end
 
 # Encoding
-def encode_char(str)
+def encode_character(str)
   @cypher.key(str.upcase)
 end
 
-puts decode_character('.....') # Output -> 5
-puts decode_word('-. .- -- .') # Output -> NAME
-puts decode_message('-- -.--   -. .- -- .') # Output -> MY NAME
-message = '.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'
-puts decode_message(message)
-puts encode_char('a') # Output -> .-
+def encode_word(str)
+  word = str.split('')
+  word.map! { |character| encode_character(character) }
+  word.join(' ')
+end
+
+# puts decode_character('.....') # Output -> 5
+# puts decode_word('-. .- -- .') # Output -> NAME
+# puts decode_message('-- -.--   -. .- -- .') # Output -> MY NAME
+# message = '.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'
+# puts decode_message(message)
+puts encode_character('a') # Output -> .-
+puts encode_word('name') # Output -> -. .- -- .
