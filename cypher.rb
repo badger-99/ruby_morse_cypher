@@ -43,26 +43,30 @@
 }
 
 #  Decoding
-def decode_char(str)
+def decode_character(str)
   @cypher[str]
 end
 
-
 def decode_word(str)
   word = str.split
-  word.map! { |letter| decode_char(letter) }
+  word.map! { |character| decode_character(character) }
   word.join
 end
 
-# def decode_message
-
-# end
+def decode_message(str)
+  message = str.split('   ')
+  message.map! { |word| decode_word(word) }
+  message.join(' ')
+end
 
 # Encoding
 def encode_char(str)
   @cypher.key(str.upcase)
 end
 
-puts decode_char('.....') # Output -> 5
+puts decode_character('.....') # Output -> 5
 puts decode_word('-. .- -- .') # Output -> NAME
+puts decode_message('-- -.--   -. .- -- .') # Output -> MY NAME
+message = '.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'
+puts decode_message(message)
 puts encode_char('a') # Output -> .-
