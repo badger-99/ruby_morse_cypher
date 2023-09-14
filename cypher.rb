@@ -46,4 +46,9 @@ def decode_char(str)
   puts @cypher[str]
 end
 
+def encode_char(str)
+  puts @cypher.key(str.upcase)
+end
+
 decode_char('.....')
+encode_char('a')
