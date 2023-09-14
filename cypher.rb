@@ -42,3 +42,8 @@
   '.--.-.' => '@'
 }
 
+def decode_char(str)
+  puts @cypher[str]
+end
+
+decode_char('.....')
